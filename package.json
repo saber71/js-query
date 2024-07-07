@@ -1,0 +1,31 @@
+{
+  "name": "@heraclius/query",
+  "version": "0.1.0",
+  "description": "通过提供一个类mongodb的查询对象来过滤数组中的元素",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "vite build",
+    "watch": "vite build --watch",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@heraclius/external-deps-plugin": "^0.1.1",
+    "@types/deep-equal": "^1.0.4",
+    "@types/node": "^20.14.10",
+    "deep-equal": "^2.2.3",
+    "unplugin-swc": "^1.5.1",
+    "vite": "^5.3.3",
+    "vite-plugin-dts": "^3.9.1",
+    "vitest": "^1.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "deep-equal": "^2.2.3"
+  }
+}
