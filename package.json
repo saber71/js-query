@@ -1,6 +1,6 @@
 {
   "name": "@heraclius/query",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "通过提供一个类mongodb的查询对象来过滤数组中的元素",
   "type": "module",
   "main": "dist/index.js",
