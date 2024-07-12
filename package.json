@@ -10,14 +10,14 @@
     "test": "vitest run"
   },
   "devDependencies": {
-    "@heraclius/external-deps-plugin": "latest",
-    "@types/deep-equal": "latest",
-    "@types/node": "latest",
-    "deep-equal": "latest",
-    "unplugin-swc": "latest",
-    "vite": "latest",
-    "vite-plugin-dts": "latest",
-    "vitest": "latest"
+    "@heraclius/external-deps-plugin": "^0.1.1",
+    "@types/deep-equal": "^1.0.4",
+    "@types/node": "^20.14.10",
+    "deep-equal": "^2.2.3",
+    "unplugin-swc": "^1.5.1",
+    "vite": "^5.3.3",
+    "vite-plugin-dts": "^3.9.1",
+    "vitest": "^2.0.2"
   },
   "publishConfig": {
     "access": "public"
@@ -26,6 +26,6 @@
     "dist"
   ],
   "peerDependencies": {
-    "deep-equal": "latest"
+    "deep-equal": "^2.2.3"
   }
 }
