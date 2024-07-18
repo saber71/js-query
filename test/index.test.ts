@@ -198,5 +198,86 @@ describe("query function", () => {
     expect(queryFn({ name: "Jane", age: 25 })).toBe(true)
   })
 
+  describe("matchQueryCondition", () => {
+    describe("$in", () => {
+      it("should match when the value is in the array", () => {
+        const data = { _id: "1", status: "active" }
+        const condition = { status: { $in: ["active", "inactive"] } }
+        expect(matchQueryCondition(data, condition)).toBe(true)
+      })
+
+      it("should not match when the value is not in the array", () => {
+        const data = { _id: "1", status: "pending" }
+        const condition = { status: { $in: ["active", "inactive"] } }
+        expect(matchQueryCondition(data, condition)).toBe(false)
+      })
+    })
+
+    describe("$notIn", () => {
+      it("should match when the value is not in the array", () => {
+        const data = { _id: "1", status: "pending" }
+        const condition = { status: { $notIn: ["active", "inactive"] } }
+        expect(matchQueryCondition(data, condition)).toBe(true)
+      })
+
+      it("should not match when the value is in the array", () => {
+        const data = { _id: "1", status: "active" }
+        const condition = { status: { $notIn: ["active", "inactive"] } }
+        expect(matchQueryCondition(data, condition)).toBe(false)
+      })
+    })
+
+    describe("$contains", () => {
+      it("should match when the array contains the value", () => {
+        const data = { _id: "1", tags: ["tech", "javascript"] }
+        const condition = { tags: { $contains: "javascript" } }
+        expect(matchQueryCondition(data, condition as any)).toBe(true)
+      })
+
+      it("should match when the string contains the substring", () => {
+        const data = { _id: "1", description: "A simple JavaScript example" }
+        const condition = { description: { $contains: "JavaScript" } }
+        expect(matchQueryCondition(data, condition)).toBe(true)
+      })
+
+      it("should not match when the array does not contain the value", () => {
+        const data = { _id: "1", tags: ["tech", "html"] }
+        const condition = { tags: { $contains: "javascript" } }
+        expect(matchQueryCondition(data, condition as any)).toBe(false)
+      })
+
+      it("should not match when the string does not contain the substring", () => {
+        const data = { _id: "1", description: "A simple HTML example" }
+        const condition = { description: { $contains: "JavaScript" } }
+        expect(matchQueryCondition(data, condition)).toBe(false)
+      })
+    })
+
+    describe("$notContains", () => {
+      it("should match when the array does not contain the value", () => {
+        const data = { _id: "1", tags: ["tech", "html"] }
+        const condition = { tags: { $notContains: "javascript" } }
+        expect(matchQueryCondition(data, condition as any)).toBe(true)
+      })
+
+      it("should match when the string does not contain the substring", () => {
+        const data = { _id: "1", description: "A simple HTML example" }
+        const condition = { description: { $notContains: "JavaScript" } }
+        expect(matchQueryCondition(data, condition)).toBe(true)
+      })
+
+      it("should not match when the array contains the value", () => {
+        const data = { _id: "1", tags: ["tech", "javascript"] }
+        const condition = { tags: { $notContains: "javascript" } }
+        expect(matchQueryCondition(data, condition as any)).toBe(false)
+      })
+
+      it("should not match when the string contains the substring", () => {
+        const data = { _id: "1", description: "A simple JavaScript example" }
+        const condition = { description: { $notContains: "JavaScript" } }
+        expect(matchQueryCondition(data, condition)).toBe(false)
+      })
+    })
+  })
   // 添加更多测试用例以覆盖其他条件和边界情况
 })
