@@ -12,12 +12,12 @@
   "devDependencies": {
     "@heraclius/external-deps-plugin": "^1.1.0",
     "@types/deep-equal": "^1.0.4",
-    "@types/node": "^20.14.11",
+    "@types/node": "^20.17.1",
     "deep-equal": "^2.2.3",
     "unplugin-swc": "^1.5.1",
-    "vite": "^5.3.4",
+    "vite": "^5.4.10",
     "vite-plugin-dts": "^3.9.1",
-    "vitest": "^2.0.4"
+    "vitest": "^2.1.3"
   },
   "publishConfig": {
     "access": "public"
