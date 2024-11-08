@@ -12,7 +12,7 @@
   "devDependencies": {
     "@heraclius/external-deps-plugin": "^1.1.0",
     "@types/deep-equal": "^1.0.4",
-    "@types/node": "^22.8.6",
+    "@types/node": "^22.9.0",
     "deep-equal": "^2.2.3",
     "unplugin-swc": "^1.5.1",
     "vite": "^5.4.10",
